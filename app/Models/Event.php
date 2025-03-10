@@ -11,27 +11,37 @@ class Event extends Model
     use HasFactory;
 
     protected $fillable = [
-        'societe_id',
+        'user_id',
+        'name',
         'title',
         'description',
-        'type',
+        'email',
+        'phone_number',
+        'services_offered',
         'date_time',
         'location',
         'image',
         'expected_attendees',
         'budget',
         'services_required',
-        'website_link'
+        'website_link',
+        'event_types',
+        'min_participants',
+        'max_participants',
+        'custom_events',
+        'payment_methods',
+        'free_consultation'
     ];
 
-    public function societe()
-    {
-        return $this->belongsTo(Societe::class);
-    }
+
 
     public function contacts()
     {
         return $this->hasMany(Contact::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

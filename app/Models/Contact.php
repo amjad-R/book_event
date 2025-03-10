@@ -23,4 +23,8 @@ class Contact extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }
