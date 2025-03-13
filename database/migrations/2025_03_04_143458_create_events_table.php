@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone_number');
             $table->text('services_offered');
-            $table->dateTime('date_time');
+            $table->dateTime('event_date_time');
             $table->string('location');
-            $table->string('image')->nullable();
-            $table->integer('expected_attendees')->nullable();
+            $table->string('images')->nullable();
+            $table->integer('expected_participants')->nullable();
             $table->decimal('budget', 10, 2)->nullable();
             $table->text('services_required')->nullable();
             $table->string('website_link')->nullable();
@@ -32,7 +32,8 @@ return new class extends Migration
             $table->integer('max_participants')->nullable();
             $table->boolean('custom_events')->default(false);
             $table->text('payment_methods')->nullable();
-            $table->boolean('free_consultation')->default(false);  
+            $table->boolean('free_consultation')->default(false);
+            $table->text('social_media_links')->nullable();
             $table->timestamps();
         });
     }

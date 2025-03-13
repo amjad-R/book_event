@@ -21,10 +21,11 @@ return new class extends Migration
             $table->string('event_type')->nullable();
             $table->dateTime('event_date_time')->nullable();
             $table->string('event_location')->nullable();
-            $table->integer('expected_attendees')->nullable();
+            $table->integer('expected_participants')->nullable();
             $table->decimal('budget', 10, 2)->nullable();
             $table->text('services_required')->nullable();
-            $table->string('logo_image')->nullable();
+            $table->string('website')->nullable();
+            $table->text('social_media_links')->nullable();
             $table->timestamps();
         });
     }

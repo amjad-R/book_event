@@ -18,10 +18,10 @@ class Event extends Model
         'email',
         'phone_number',
         'services_offered',
-        'date_time',
+        'event_date_time',
         'location',
-        'image',
-        'expected_attendees',
+        'images',
+        'expected_participants',
         'budget',
         'services_required',
         'website_link',
@@ -30,7 +30,8 @@ class Event extends Model
         'max_participants',
         'custom_events',
         'payment_methods',
-        'free_consultation'
+        'free_consultation',
+        'social_media_links'
     ];
 
 
