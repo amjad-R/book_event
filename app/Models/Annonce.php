@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Annonce extends Model
 {
-    /** @use HasFactory<\Database\Factories\ClientFactory> */
     use HasFactory;
 
     protected $fillable = [
@@ -15,16 +14,15 @@ class Client extends Model
         'full_name',
         'email',
         'phone_number',
-        'event_name',
         'event_description',
         'event_type',
         'event_date_time',
         'event_location',
-        'expected_attendees',
+        'expected_participants',
         'budget',
-        'needs_help',
         'services_required',
-        'logo_image'
+        'website',
+        'social_media_links'
     ];
 
     public function user()

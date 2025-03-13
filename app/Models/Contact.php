@@ -11,6 +11,8 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = [
+        'full_name',
+        'subject',
         'email',
         'event_id',
         'user_id',
@@ -23,4 +25,8 @@ class Contact extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }

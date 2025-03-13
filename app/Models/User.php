@@ -30,12 +30,19 @@ class User extends Authenticatable
         return $this->role === $role;
     }
 
-    public function societe(){
-        return $this->hasOne(Societe::class);
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
     }
 
-    public function client(){
-        return $this->hasOne(Client::class);
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'societe_id');
+    }
+
+    public function annonces()
+    {
+        return $this->hasMany(Annonce::class);
     }
 
 

@@ -13,17 +13,27 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('societe_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('name');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('type')->nullable();
-            $table->dateTime('date_time');
+            $table->string('email');
+            $table->string('phone_number');
+            $table->text('services_offered');
+            $table->dateTime('event_date_time');
             $table->string('location');
-            $table->string('image')->nullable();
-            $table->integer('expected_attendees')->nullable();
+            $table->string('images')->nullable();
+            $table->integer('expected_participants')->nullable();
             $table->decimal('budget', 10, 2)->nullable();
-            $table->text('services_required')->nullable(); 
+            $table->text('services_required')->nullable();
             $table->string('website_link')->nullable();
+            $table->text('event_types');
+            $table->integer('min_participants')->nullable();
+            $table->integer('max_participants')->nullable();
+            $table->boolean('custom_events')->default(false);
+            $table->text('payment_methods')->nullable();
+            $table->boolean('free_consultation')->default(false);
+            $table->text('social_media_links')->nullable();
             $table->timestamps();
         });
     }
