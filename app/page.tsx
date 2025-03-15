@@ -1,101 +1,227 @@
-import Image from "next/image";
+"use client"
+import Link from "next/link"
+import { CompanyCard } from "@/components/company-card"
+import { companies } from "@/data/companies"
+import { testimonials } from "@/data/testimonials"
+import "@/styles/home.css"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-overlay"></div>
+        <div className="container">
+          <div className="hero-content">
+            <h1 className="section-title">La plateforme qui connecte organisateurs et prestataires d'événements</h1>
+            <p>
+              EventConnect est le pont entre ceux qui souhaitent organiser des événements exceptionnels et les
+              professionnels qui les rendent possibles
+            </p>
+            <div className="hero-buttons">
+              <Link href="/organisateurs" className="btn btn-primary">
+                Je veux organiser <i className="fas fa-calendar-alt"></i>
+              </Link>
+              <Link href="/prestataires" className="btn btn-outline">
+                Je suis prestataire <i className="fas fa-briefcase"></i>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </section>
+
+      {/* Pour qui section */}
+      <section className="for-who">
+        <div className="container">
+          <h2 className="section-titles">
+            Notre plateforme pour tous
+            <br />
+            vos besoins événementiels
+          </h2>
+          <div className="audience-grid">
+            <div className="audience-card">
+              <div className="audience-icon">
+                <i className="fas fa-users"></i>
+              </div>
+              <h3>Pour les organisateurs</h3>
+              <p>Vous planifiez un événement et recherchez les meilleurs prestataires? EventConnect vous permet de:</p>
+              <ul>
+                <li>
+                  <i className="fas fa-check"></i> Trouver des prestataires qualifiés
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Comparer les offres et tarifs
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Gérer vos réservations
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Assurer le succès de votre événement
+                </li>
+              </ul>
+              <Link href="/organisateurs" className="btn btn-primary">
+                Découvrir plus
+              </Link>
+            </div>
+            <div className="audience-card">
+              <div className="audience-icon">
+                <i className="fas fa-briefcase"></i>
+              </div>
+              <h3>Pour les prestataires</h3>
+              <p>
+                Vous offrez des services événementiels et cherchez à développer votre clientèle? EventConnect vous
+                permet de:
+              </p>
+              <ul>
+                <li>
+                  <i className="fas fa-check"></i> Présenter vos services
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Atteindre plus de clients
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Gérer vos réservations
+                </li>
+                <li>
+                  <i className="fas fa-check"></i> Développer votre activité
+                </li>
+              </ul>
+              <Link href="/prestataires" className="btn btn-primary">
+                Découvrir plus
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="services">
+        <div className="container">
+          <h2 className="section-titles">
+            Types d'événements que nous
+            <br />
+            couvrons avec excellence
+          </h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <i className="fas fa-calendar-alt"></i>
+              <h3>Conférences et Séminaires</h3>
+              <p>
+                Organisation professionnelle de conférences, séminaires et expositions pour entreprises et institutions
+              </p>
+            </div>
+            <div className="service-card">
+              <i className="fas fa-glass-cheers"></i>
+              <h3>Mariages et Célébrations</h3>
+              <p>Planification complète de mariages et célébrations familiales avec tous les services nécessaires</p>
+            </div>
+            <div className="service-card">
+              <i className="fas fa-music"></i>
+              <h3>Concerts et Festivals</h3>
+              <p>Organisation d'événements musicaux, festivals et spectacles pour tous les publics</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="how-it-works">
+        <div className="container">
+          <h2 className="section-titles">
+            Comment ça fonctionne
+            <br />
+            en toute simplicité
+          </h2>
+          <div className="steps-container">
+            <div className="step-card">
+              <div className="step-number">1</div>
+              <h3>Inscription</h3>
+              <p>Créez votre compte en tant qu'organisateur ou prestataire de services</p>
+            </div>
+            <div className="step-card">
+              <div className="step-number">2</div>
+              <h3>Connexion</h3>
+              <p>Les organisateurs trouvent des prestataires, les prestataires reçoivent des demandes</p>
+            </div>
+            <div className="step-card">
+              <div className="step-number">3</div>
+              <h3>Collaboration</h3>
+              <p>Communiquez, négociez et finalisez les détails de votre événement</p>
+            </div>
+            <div className="step-card">
+              <div className="step-number">4</div>
+              <h3>Réalisation</h3>
+              <p>Concrétisez votre événement avec le soutien de notre plateforme</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Companies */}
+      <section className="companies">
+        <div className="container">
+          <div className="companies-header">
+            <h2 className="section-titles">
+              80.000+ fournisseurs de services talentueux avec
+              <br />
+              des avis de clients vérifiés.
+            </h2>
+          </div>
+          <div className="companies-grid">
+            {companies.map((company, i) => (
+              <CompanyCard key={i} {...company} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="testimonials">
+        <div className="container">
+          <h2 className="section-titles">
+            Ce que disent nos clients
+            <br />
+            satisfaits de nos services
+          </h2>
+          <div className="testimonials-slider">
+            <div className="testimonials-track">
+              {testimonials.map((testimonial, i) => (
+                <div key={i} className="testimonial-card">
+                  <div className="testimonial-content">
+                    <p>"{testimonial.text}"</p>
+                  </div>
+                  <div className="testimonial-author">
+                    <div className="testimonial-avatar"></div>
+                    <div className="testimonial-info">
+                      <h4>{testimonial.name}</h4>
+                      <p>{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="cta">
+        <div className="container">
+          <div className="cta-content">
+            <h2>Prêt à transformer vos événements?</h2>
+            <p>Que vous soyez organisateur ou prestataire, rejoignez notre plateforme dès aujourd'hui</p>
+            <div className="cta-buttons">
+              <Link href="/auth/register" className="btn btn-light">
+                S'inscrire maintenant <i className="fas fa-arrow-right"></i>
+              </Link>
+              <Link href="/auth/login" className="btn btn-outline-light">
+                Se connecter
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
 }
+
