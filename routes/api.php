@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,9 @@ Route::middleware(['auth:sanctum', 'role:user'])->group(function () {
 });
 
 
+
+
+Route::apiResource('annonces', HomeController::class);
 
 
 Route::post('/register', [AuthController::class, 'register']);
