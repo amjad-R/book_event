@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import "../../../../styles/auth-styles.css"
 
 interface RegisterData {
   name: string

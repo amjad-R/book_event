@@ -18,18 +18,18 @@ export function CompanyCard({ name, logo, rating, reviews, description, tags, su
   const [imageError, setImageError] = useState(false)
 
   return (
-    <div className="company-card">
+    <div className="company-card ">
+      <div className="company-logo-wrapper top-center">
+        <Image
+          src={imageError ? "/placeholder.svg?height=80&width=80" : logo}
+          alt={"logo"}
+          width={80}
+          height={80}
+          className="company-logo ai-logo"
+          onError={() => setImageError(true)}
+        />
+      </div>
       <div className="company-header">
-        <div className="company-logo-wrapper">
-          <Image
-            src={imageError ? "/placeholder.svg?height=80&width=80" : logo}
-            alt={"logo"}
-            width={80}
-            height={80}
-            className="company-logo"
-            onError={() => setImageError(true)}
-          />
-        </div>
         <div className="company-main-info">
           <h3>{name}</h3>
           <p className="company-subtitle">{subtitle}</p>
@@ -63,4 +63,3 @@ export function CompanyCard({ name, logo, rating, reviews, description, tags, su
     </div>
   )
 }
-

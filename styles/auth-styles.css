@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #1e88e5;
+  --secondary-color: #7c4dff;
+  --dark-color: #000000;
+  --light-color: #ffffff;
+  --gray-color: #333333;
+  --light-gray: #555555;
+}
 .auth-page {
   padding-top: 100px; /* Use padding-top instead of margin-top */
   min-height: 100vh;
@@ -19,8 +27,8 @@
   background-color: #1a1a1a;
   border-radius: 12px;
   padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px #262728;
+  border: 1px solid var(--primary-color);
 }
 
 .auth-header {

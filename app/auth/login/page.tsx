@@ -20,48 +20,27 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      // Mock API call - in a real app, this would be a fetch to your backend
-      await new Promise((resolve) => setTimeout(resolve, 800))
-
-      // Mock users for demo
-      const mockUsers = [
-        {
-          id: 1,
-          name: "Organisateur Test",
-          email: "organizer@example.com",
-          password: "password123",
-          role: "organizer",
+      const response = await fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        {
-          id: 2,
-          name: "Prestataire Test",
-          email: "provider@example.com",
-          password: "password123",
-          role: "provider",
-        },
-      ]
+        body: JSON.stringify({ email, password }),
+        credentials: "include",
+      })
 
-      const user = mockUsers.find((u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password)
+      const data = await response.json()
 
-      if (user) {
-        // Store user in localStorage
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-          }),
-        )
-
-        router.push("/dashboard")
-      } else {
-        setError("Email ou mot de passe incorrect")
+      if (!response.ok) {
+        throw new Error(data.message || "Une erreur est survenue lors de la connexion")
       }
+
+      // Store user data
+      localStorage.setItem("user", JSON.stringify(data.user))
+      
+      router.push("/dashboard")
     } catch (err) {
-      setError("Une erreur est survenue lors de la connexion")
-      console.error(err)
+      setError(err instanceof Error ? err.message : "Une erreur est survenue")
     } finally {
       setIsLoading(false)
     }
@@ -141,4 +120,3 @@ export default function LoginPage() {
     </main>
   )
 }
-

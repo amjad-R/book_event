@@ -330,7 +330,7 @@ nav ul li a:hover {
 
 .audience-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px var(--secondary-color);
+  box-shadow: 0 10px 20px var(--primary-color);
 }
 
 .audience-icon {
@@ -395,7 +395,7 @@ nav ul li a:hover {
 
 .step-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px var(--secondary-color);
+  box-shadow: 0 10px 20px var(--primary-color);
 }
 .step-card:hover h3 {
   color: var(--primary-color);
@@ -464,7 +464,7 @@ nav ul li a:hover {
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px var(--secondary-color);
+  box-shadow: 0 10px 20px var(--primary-color);
 }
 
 .service-card i {
@@ -537,7 +537,7 @@ nav ul li a:hover {
 
 .company-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px var(--secondary-color);
+  box-shadow: 0 10px 20px var(--primary-color);
 }
 
 .company-header {

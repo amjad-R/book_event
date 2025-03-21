@@ -94,14 +94,14 @@
   background-color: rgba(30, 30, 30, 0.8);
   border-radius: 10px;
   padding: 40px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .audience-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 5px 12px var(--secondary-color);
+  
 }
 
 .audience-icon {
@@ -166,7 +166,7 @@
 
 .step-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 5px 12px var(--secondary-color);
+  
 }
 
 .step-card:hover h3 {
@@ -236,7 +236,7 @@
 
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 5px 12px var(--secondary-color);
+  
 }
 
 .service-card i {
@@ -349,7 +349,6 @@
 
 .testimonial-card {
   transform: none !important;
-  transition: box-shadow 0.3s ease;
   background-color: rgba(30, 30, 30, 0.8);
   border-radius: 10px;
   padding: 30px;
@@ -358,7 +357,6 @@
 
 .testimonial-card:hover {
   transform: none !important;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-content {

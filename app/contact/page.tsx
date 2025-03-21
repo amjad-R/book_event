@@ -282,8 +282,10 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
-
-              <div className="contact-map" ref={mapRef}>
+            </div>
+            
+          </div>
+          <div className="contact-map" ref={mapRef}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.142047033408!2d2.3002659156744847!3d48.87067100866258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc49f6ee0b3%3A0x7e8d9e25ea0d9b0!2sAv.%20des%20Champs-%C3%89lys%C3%A9es%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1615280026159!5m2!1sen!2sus"
                   width="100%"
@@ -294,8 +296,6 @@ export default function ContactPage() {
                   title="Google Maps"
                 ></iframe>
               </div>
-            </div>
-          </div>
         </div>
       </section>
     </main>

@@ -1,61 +1,75 @@
 .company-card {
-  background-color: rgba(30, 30, 30, 0.95);
+  background-color: #181818;
   border-radius: 12px;
   padding: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  text-align: center;
 }
 
 .company-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 12px var(--secondary-color);
+  box-shadow: 0 5px 12px var(--primary-color);
 }
 
 .company-header {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 20px;
-  gap: 20px;
 }
 
 .company-logo-wrapper {
-  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 10px;
 }
 
 .company-logo {
   width: 60px;
   height: 60px;
-  border-radius: 8px;
   object-fit: cover;
-  background-color: #fff;
+  border-radius: 8px;
 }
 
-.company-main-info {
-  flex: 1;
+.company-main-info h3,
+.rating-number,
+.company-subtitle,
+.company-description,
+.company-tag {
+  color: #fff; /* تغيير لون النصوص إلى الأبيض */
 }
 
 .company-main-info h3 {
   font-size: 1.4rem;
   margin-bottom: 5px;
-  color: var(--light-color);
 }
 
 .company-subtitle {
   font-size: 0.9rem;
-  color: #aaa;
   margin-bottom: 10px;
 }
 
 .company-rating {
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 10px;
+  width: 100%;
 }
 
 .rating-number {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--light-color);
 }
 
 .rating-stars {
@@ -64,24 +78,25 @@
 }
 
 .rating-stars i {
-  color: #666;
+  color: #e3dfb4; /* تغيير لون النجوم إلى الأصفر */
   font-size: 1rem;
 }
 
 .rating-stars i.active {
-  color: gold;
+  color: #e7d84f;
 }
 
 .review-count {
-  color: #888;
+  color: #d5eb47;
   font-size: 0.9rem;
 }
 
 .company-tags {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
 .company-tag {
@@ -92,17 +107,16 @@
   border-radius: 15px;
   font-size: 0.85rem;
   background-color: rgba(255, 255, 255, 0.1);
-  color: #aaa;
 }
 
 .company-tag.promoted {
-  background-color: rgba(255, 215, 0, 0.15);
-  color: gold;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
 .company-tag.verified {
-  background-color: rgba(0, 255, 0, 0.15);
-  color: #4caf50;
+  background-color: rgba(200, 200, 200, 0.2);
+  color: #ddd;
 }
 
 .company-tag i {
@@ -110,34 +124,13 @@
 }
 
 .company-description {
-  color: #aaa;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
-@media (max-width: 1200px) {
-  .company-main-info {
-    text-align: center;
-    margin: auto;
-  }
-}
-
 @media (max-width: 480px) {
-  .company-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .company-logo-wrapper {
-    margin: 0 auto;
-  }
-
-  .company-rating {
-    justify-content: center;
-  }
-
+  .company-rating,
   .company-tags {
     justify-content: center;
   }
 }
-

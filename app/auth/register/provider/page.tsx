@@ -1,12 +1,12 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import "../../../../styles/auth-styles.css"
 
-// Define the registration data interface locally
+
 interface RegisterData {
   name: string
   email: string
@@ -22,7 +22,7 @@ export default function RegisterProviderPage() {
     email: "",
     password: "",
     password_confirmation: "",
-    role: "provider", // Set the role to provider
+    role: "socite",
   })
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -33,14 +33,12 @@ export default function RegisterProviderPage() {
       ...prev,
       [name]: value,
     }))
-    // Clear error when user starts typing again
     if (error) setError(null)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Validate passwords match
     if (formData.password !== formData.password_confirmation) {
       setError("Les mots de passe ne correspondent pas")
       return
@@ -50,33 +48,23 @@ export default function RegisterProviderPage() {
     setError(null)
 
     try {
-      // Mock API call - in a real app, this would be a fetch to your backend
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const response = await fetch("http://127.0.0.1:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include",
+      })
 
-      // Mock validation - check if email already exists
-      const existingUsers = JSON.parse(localStorage.getItem("users") || "[]")
-      const emailExists = existingUsers.some((user: any) => user.email.toLowerCase() === formData.email.toLowerCase())
-
-      if (emailExists) {
-        throw new Error("Un utilisateur avec cet email existe déjà")
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || "Une erreur est survenue lors de l'inscription")
       }
 
-      // Create new user
-      const newUser = {
-        id: Date.now(),
-        name: formData.name,
-        email: formData.email,
-        role: formData.role,
-      }
+      const data = await response.json()
+      console.log("Success:", data)
 
-      // Store user in localStorage
-      localStorage.setItem("user", JSON.stringify(newUser))
-
-      // Add to users list (for demo purposes)
-      existingUsers.push({ ...newUser, password: formData.password })
-      localStorage.setItem("users", JSON.stringify(existingUsers))
-
-      // Redirect to dashboard after successful registration
       router.push("/dashboard")
     } catch (err) {
       console.error("Registration error:", err)
@@ -186,4 +174,3 @@ export default function RegisterProviderPage() {
     </main>
   )
 }
-
