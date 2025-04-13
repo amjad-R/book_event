@@ -29,10 +29,7 @@ class HomeController extends Controller implements HasMiddleware
 
     public function show(Annonce $annonce)
     {
-        return response()->json([
-            'message' => 'Annonce retrieved successfully.',
-            'data' => $annonce
-        ]);
+        return response()->json([ 'data' => $annonce ]);
     }
 
 
